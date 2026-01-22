@@ -25,8 +25,15 @@ spec:
         - headers:
             - type: Exact
               name: x-ai-eg-model
-              value: mistral:latest
+              value: mistralai/Mistral-7B-Instruct-v0.2
       backendRefs:
         - group: inference.networking.k8s.io
           kind: InferencePool
           name: mistral
+  llmRequestCosts:
+    - metadataKey: llm_input_token
+      type: InputToken    # Counts tokens in the request
+    - metadataKey: llm_output_token
+      type: OutputToken   # Counts tokens in the response
+    - metadataKey: llm_total_token
+      type: TotalToken   # Tracks combined usage
