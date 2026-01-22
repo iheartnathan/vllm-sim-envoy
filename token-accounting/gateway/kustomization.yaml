@@ -5,5 +5,5 @@ resources:
   - gateway.yaml
   - gatewayclass.yaml
   - route.yaml
-  - backendTrafficPolicy.yaml
+  - backendtrafficpolicy.yaml
   
