@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vllm-mistral-7b-instruct-v0-2
+  namespace: default
 spec:
   replicas: 3
   selector:
