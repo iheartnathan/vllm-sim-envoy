@@ -24,3 +24,16 @@ spec:
     kind: GitRepository
     name: flux-system           
   path: ./infrastructure/sources/infrastructure/helm/base
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: gaie-source
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system           
+  path: ./infrastructure/crds/gaie/base
