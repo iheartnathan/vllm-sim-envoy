@@ -29,7 +29,7 @@ spec:
       backendRefs:
         - group: inference.networking.k8s.io
           kind: InferencePool
-          name: mistral
+          name: vllm-mistral-7b-instruct-v0-2
   llmRequestCosts:
     - metadataKey: llm_input_token
       type: InputToken    # Counts tokens in the request
