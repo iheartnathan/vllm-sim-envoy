@@ -1,36 +1,36 @@
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: envoy-gateway-controller
-#   namespace: flux-system
-# spec:
-#   interval: 10m
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   path: ./infrastructure/controllers/eg/overlays/staging
-#   dependsOn:
-#     - name: gateway-api-inference-extension-crds
-#     - name: redis-operator
-#     # - name: gateway-api-crds
-#     # - name: envoy-gateway-crds
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: envoy-ai-gateway-controller
-#   namespace: flux-system
-# spec:
-#   interval: 10m
-#   prune: true
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
-#   path: ./infrastructure/controllers/eaig/overlays/staging
-#   dependsOn:
-#     - name: gateway-api-inference-extension-crds
-#     - name: redis-operator
-#     # - name: gateway-api-crds
-#     - name: envoy-ai-gateway-crds
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: envoy-gateway-controller
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/controllers/eg/overlays/staging
+  dependsOn:
+    - name: gateway-api-inference-extension-crds
+    - name: redis-operator
+    # - name: gateway-api-crds
+    # - name: envoy-gateway-crds
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: envoy-ai-gateway-controller
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infrastructure/controllers/eaig/overlays/staging
+  dependsOn:
+    - name: gateway-api-inference-extension-crds
+    - name: redis-operator
+    # - name: gateway-api-crds
+    - name: envoy-ai-gateway-crds
