@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - cert-manager.yaml
+  # - external-dns.yaml
+  - eaig-crds.yaml
+  - eaig.yaml
+  - eg-crds.yaml
+  - eg.yaml
+  - kserve-crds.yaml
+  - kserve.yaml

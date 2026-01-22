@@ -1,0 +1,46 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patches:
+  - path: cert-manager-patch.yaml
+    target:
+      kind: OCIRepository
+      name: cert-manager
+      namespace: flux-system
+  # - path: external-dns-patch.yaml
+  #   target:
+  #     kind: OCIRepository
+  #     name: external-dns
+  #     namespace: flux-system
+  - path: eaig-crds-patch.yaml
+    target:
+      kind: OCIRepository
+      name: envoy-ai-gateway-crds
+      namespace: flux-system
+  - path: eaig-patch.yaml
+    target:
+      kind: OCIRepository
+      name: envoy-ai-gateway
+      namespace: flux-system
+  - path: eg-crds-patch.yaml
+    target:
+      kind: OCIRepository
+      name: envoy-gateway-crds
+      namespace: flux-system
+  - path: eg-patch.yaml
+    target:
+      kind: OCIRepository
+      name: envoy-gateway
+      namespace: flux-system
+  - path: kserve-crds-patch.yaml
+    target:
+      kind: OCIRepository
+      name: kserve-crds
+      namespace: flux-system
+  - path: kserve-patch.yaml
+    target:
+      kind: OCIRepository
+      name: kserve
+      namespace: flux-system
+

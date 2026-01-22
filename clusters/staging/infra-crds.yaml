@@ -1,0 +1,82 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: gateway-api-inference-extension-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: false
+  wait: true
+  timeout: 2m
+  sourceRef:
+    kind: GitRepository
+    name: gateway-api-inference-extension-crds
+  path: ./config/crd/
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: gateway-api-crds
+#   namespace: flux-system
+# spec:
+#   interval: 10m
+#   prune: false
+#   wait: true
+#   timeout: 2m
+#   sourceRef:
+#     kind: GitRepository
+#     name: gateway-api-crds
+#   path: ./config/crd/experimental
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: envoy-ai-gateway-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system          
+  path: ./infrastructure/crds/eaig/overlays/staging
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1
+# kind: Kustomization
+# metadata:
+#   name: envoy-gateway-crds
+#   namespace: flux-system
+# spec:
+#   interval: 10m
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: flux-system          
+#   path: ./infrastructure/crds/eg/overlays/staging
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: nvidia-dynamo-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: false
+  sourceRef:
+    kind: GitRepository
+    name: flux-system          
+  path: ./infrastructure/crds/nvidia-dynamo/base
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kserve-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system          
+  path: ./infrastructure/crds/kserve/base

@@ -1,0 +1,30 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nvidia-dynamo
+  namespace: flux-system
+spec:
+  interval: 12h
+  chart:
+    spec:
+      chart: dynamo-platform
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: nvidia-dynamo
+        namespace: flux-system
+      interval: 1h
+  install:
+    crds: Skip
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  upgrade:
+    crds: Skip
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+  driftDetection:
+    mode: warn
+  targetNamespace: nvidia-dynamo

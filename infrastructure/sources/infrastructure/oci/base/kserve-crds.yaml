@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: kserve-crds
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: oci://ghcr.io/kserve/charts/kserve-crd
+

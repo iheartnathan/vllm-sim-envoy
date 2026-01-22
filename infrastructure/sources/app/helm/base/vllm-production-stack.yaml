@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: vllm-production-stack
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: https://vllm-project.github.io/production-stack
+  timeout: 1m
+
