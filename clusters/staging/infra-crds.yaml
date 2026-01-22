@@ -11,7 +11,7 @@ spec:
   timeout: 2m
   sourceRef:
     kind: GitRepository
-    name: gateway-api-inference-extension-crds
+    name: gateway-api-inference-extension-crds-source
   path: ./config/crd/
 # ---
 # apiVersion: kustomize.toolkit.fluxcd.io/v1
